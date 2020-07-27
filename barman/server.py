@@ -705,7 +705,7 @@ class Server(RemoteStatusMixin):
 
         # Check the presence and the status of the configured replication slot
         # This check will be skipped if `slot_name` is undefined
-        if self.config.slot_name:
+        if False and self.config.slot_name:
             check_strategy.init_check("replication slot")
             slot = remote_status['replication_slot']
             # The streaming_archiver is enabled

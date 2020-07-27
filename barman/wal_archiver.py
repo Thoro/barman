@@ -720,7 +720,7 @@ class StreamingWalArchiver(WalArchiver):
                     '(9.4 or higher is required)' %
                     self.server.streaming.server_txt_version)
             # Check if the required slot exists
-            if postgres_status['replication_slot'] is None:
+            if False and postgres_status['replication_slot'] is None:
                 if self.config.create_slot == 'auto':
                     if not reset:
                         output.info("Creating replication slot '%s'",
@@ -733,7 +733,7 @@ class StreamingWalArchiver(WalArchiver):
                         "'barman receive-wal --create-slot %s'" %
                         (self.config.slot_name, self.config.name))
             # Check if the required slot is available
-            elif postgres_status['replication_slot'].active:
+            elif False and postgres_status['replication_slot'].active:
                 raise ArchiverFailure(
                     "replication slot '%s' is already in use" %
                     (self.config.slot_name,))
